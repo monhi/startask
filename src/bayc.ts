@@ -26,10 +26,11 @@ export function handleTransfer(event: TransferEvent): void {
   let contractAddress = BAYC.bind(event.address);
 
   let boredApe = BoredApe.load(event.params.tokenId.toString());
-  if (boredApe == null) {
-    boredApe = new BoredApe(event.params.tokenId.toString());
-    boredApe.creator = event.params.to;
-    boredApe.tokenURI = contractAddress.tokenURI(event.params.tokenId);
+  if (boredApe == null) 
+  {
+    boredApe            = new BoredApe(event.params.tokenId.toString());
+    boredApe.creator    = event.params.to;
+    boredApe.tokenURI   = contractAddress.tokenURI(event.params.tokenId);
   }
   boredApe.newOwner = event.params.to;
   boredApe.blockNumber = event.block.number;
@@ -43,27 +44,30 @@ export function handleTransfer(event: TransferEvent): void {
 
   let property = Property.load(event.params.tokenId.toString());
 
-  if (property == null) {
+  if (property == null) 
+  {
     property = new Property(event.params.tokenId.toString());
-
     let fullURI = ipfshash + tokenURI;
     log.debug('The fullURI is: {} ', [fullURI]);
 
     let ipfsData = ipfs.cat(fullURI);
 
-    if (ipfsData) {
+    if (ipfsData) 
+    {
       let ipfsValues = json.fromBytes(ipfsData).toObject();
 
-      if (ipfsValues) {
+      if (ipfsValues) 
+      {
         let image = ipfsValues.get('image');
         let attributes = ipfsValues.get('attributes');
 
         let attributeArray: JSONValue[];
-        if (image) {
+        if (image) 
+        {
           property.image = image.toString();
         }
-        if (attributes) {
-
+        if (attributes)
+        {
           attributeArray = attributes.toArray();
 
           for (let i = 0; i < attributeArray.length; i++) {
@@ -76,12 +80,14 @@ export function handleTransfer(event: TransferEvent): void {
             let trait: string;
             let value: string;
 
-            if (trait_type && value_type) {
+            if (trait_type && value_type) 
+            {
 
               trait = trait_type.toString();
               value = value_type.toString();
 
-              if (trait && value) {
+              if (trait && value) 
+              {
 
                 if (trait == "Background") {
                   property.background = value;
@@ -110,18 +116,12 @@ export function handleTransfer(event: TransferEvent): void {
                 if (trait == "Mouth") {
                   property.mouth = value;
                 }
-
               }
-
             }
-
           }
-
         }
-
       }
     }
-
   }
 
   property.save();
