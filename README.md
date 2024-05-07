@@ -10,19 +10,19 @@ In the `src\mapping.ts` all the necessary codes are available to implement the `
 To compile and deploy the project, we have to create a subgraph in `thegraph.com` and based on the instructions compile and deploy our project.
 Sample instructions are like the following:
 
-npm install -g @graphprotocol/graph-cli
+* npm install -g @graphprotocol/graph-cli
 
-graph init --studio `subgraph_name`
+* graph init --studio `subgraph_name`
 
-graph auth --studio `authentication token for the subgraph`
+* graph auth --studio `authentication token for the subgraph`
 
-cd `subgraph_name`
+* cd `subgraph_name`
 
-graph codegen 
+* graph codegen 
 
-graph build
+* graph build
 
-graph deploy --studio `subgraph_name`
+* graph deploy --studio `subgraph_name`
 
 
 # Points
