@@ -28,7 +28,7 @@ Sample instructions are like the following:
 # Points
 I have to use `file data sources` instead of `ipfs.cat` and `ipfs.map` because newer APIs of the graph do not support these 2 functions.
 
-`https://thegraph.com/docs/en/developing/creating-a-subgraph/#file-data-sources`
+[Link text Here](https://thegraph.com/docs/en/developing/creating-a-subgraph/#file-data-sources)
 
 
 
