@@ -11,11 +11,17 @@ To compile and deploy the project, we have to create a subgraph in `thegraph.com
 Sample instructions are like the following:
 
 npm install -g @graphprotocol/graph-cli
+
 graph init --studio `subgraph_name`
+
 graph auth --studio `authentication token for the subgraph`
+
 cd `subgraph_name`
+
 graph codegen 
+
 graph build
+
 graph deploy --studio `subgraph_name`
 
 
